@@ -6,9 +6,11 @@ import TransactionsScreen from './TransactionsScreen'
 import BudgetScreen from './BudgetScreen'
 import ProfileScreen from './ProfileScreen'
 import AddTransactionScreen from './AddTransactionScreen'
+import AddCategoryScreen from './AddCategoryScreen'
 
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
+
 
 function TabIcon({ emoji, focused }) {
   return <Text style={{ fontSize: 20, opacity: focused ? 1 : 0.5 }}>{emoji}</Text>
@@ -71,6 +73,7 @@ export default function MainTabs() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Tabs" component={Tabs} />
       <Stack.Screen name="AddTransaction" component={AddTransactionScreen} />
+      <Stack.Screen name="AddCategory" component={AddCategoryScreen} />
     </Stack.Navigator>
   )
 }

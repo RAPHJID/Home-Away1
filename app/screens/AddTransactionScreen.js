@@ -30,7 +30,7 @@ export default function AddTransactionScreen({ navigation }) {
       .from('categories')
       .select('*')
       .or(`user_id.is.null,user_id.eq.${user.id}`)
-      .eq('type', type === 'income' ? 'income' : 'expense')
+      .or(`type.eq.${type},type.eq.both`)
       .order('name')
 
     setProfile(profileData)
@@ -172,7 +172,12 @@ export default function AddTransactionScreen({ navigation }) {
             </TouchableOpacity>
           ))}
         </View>
-
+        <TouchableOpacity
+        style={styles.addCatBtn}
+            onPress={() => navigation.navigate('AddCategory', { type })}
+        >
+        <Text style={styles.addCatBtnText}>+ Create new category</Text>
+        </TouchableOpacity>
         <Text style={styles.label}>Date</Text>
         <TextInput
           style={styles.input}
@@ -249,5 +254,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#185FA5', borderRadius: 12,
     padding: 16, alignItems: 'center', marginTop: 8
   },
+  addCatBtn: {
+  borderWidth: 0.5, borderColor: '#185FA5', borderRadius: 10,
+  padding: 12, alignItems: 'center', marginBottom: 20,
+  borderStyle: 'dashed'
+},
+addCatBtnText: { color: '#185FA5', fontSize: 14, fontWeight: '500' },
   saveBtnText: { color: '#fff', fontSize: 16, fontWeight: '600' }
 })
