@@ -7,6 +7,7 @@ import BudgetScreen from './BudgetScreen'
 import ProfileScreen from './ProfileScreen'
 import AddTransactionScreen from './AddTransactionScreen'
 import AddCategoryScreen from './AddCategoryScreen'
+import AddBudgetScreen from './AddBudgetScreen'
 
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
@@ -53,6 +54,7 @@ function Tabs({ navigation }) {
     >
       <Tab.Screen name="Dashboard" component={DashboardScreen} />
       <Tab.Screen name="Transactions" component={TransactionsScreen} />
+      
       <Tab.Screen
         name="Add"
         component={DashboardScreen}
@@ -74,6 +76,7 @@ export default function MainTabs() {
       <Stack.Screen name="Tabs" component={Tabs} />
       <Stack.Screen name="AddTransaction" component={AddTransactionScreen} />
       <Stack.Screen name="AddCategory" component={AddCategoryScreen} />
+      <Stack.Screen name="AddBudget" component={AddBudgetScreen} />
     </Stack.Navigator>
   )
 }
