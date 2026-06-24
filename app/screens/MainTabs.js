@@ -8,6 +8,8 @@ import ProfileScreen from './ProfileScreen'
 import AddTransactionScreen from './AddTransactionScreen'
 import AddCategoryScreen from './AddCategoryScreen'
 import AddBudgetScreen from './AddBudgetScreen'
+import AIScreen from './AIScreen'
+
 
 const Tab = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
@@ -53,8 +55,7 @@ function Tabs({ navigation }) {
       })}
     >
       <Tab.Screen name="Dashboard" component={DashboardScreen} />
-      <Tab.Screen name="Transactions" component={TransactionsScreen} />
-      
+      <Tab.Screen name="Transactions" component={TransactionsScreen} />      
       <Tab.Screen
         name="Add"
         component={DashboardScreen}
@@ -65,6 +66,15 @@ function Tabs({ navigation }) {
         }}
       />
       <Tab.Screen name="Budget" component={BudgetScreen} />
+      <Tab.Screen
+        name="Assistant"
+        component={AIScreen}
+        options={{
+        tabBarIcon: ({ focused }) => (
+      <TabIcon emoji="🤖" focused={focused} />
+        ),
+        }}
+        />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   )
